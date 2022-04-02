@@ -1,12 +1,34 @@
 package com.mundoaquarismo.mundoaquarismo.Models;
 
-public class ElementosPeixe {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class ElementosPeixe implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long codigo;
+
     private String nome;
     private String especie;
     private String local;
     private String familia;
     private String tipoagua;
     private String alimentacao;
+    private String informacao;
+
+    public long getCodigo() { return codigo;}
+
+    public void setCodigo(long codigo) {this.codigo = codigo;}
+
+    public String getInformacao() {return informacao;}
+
+    public void setInformacao(String informacao) {this.informacao = informacao;}
 
     public String getNome() {
         return nome;

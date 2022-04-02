@@ -1,4 +1,4 @@
-package com.mundoaquarismo.mundoaquarismo.Data;
+package com.mundoaquarismo.mundoaquarismo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ public class DataConfiguration {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/peixesapp?useTimezone=true&serverTimezone=UTC&useSSL=false");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/peixesapp");
         dataSource.setUsername("root");
         dataSource.setPassword("230714");
         return dataSource;
@@ -27,7 +27,7 @@ public class DataConfiguration {
         adapter.setDatabase(Database.MYSQL);
         adapter.setShowSql(true);
         adapter.setGenerateDdl(true);
-        adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+        adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect.");
         adapter.setPrepareConnection(true);
         return adapter;
     }
